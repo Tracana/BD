@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>List retalhistas - Flask</title>
+</head>
+<body style="padding:20px">
+{% if cursor %}
+ <table border="2px">
+  <thead>
+    <tr>
+     <th>TIN</th>
+     <th>Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for record in cursor %}
+    <tr>
+     <td>{{ record[0] }}</td>
+     <td>{{ record[1] }}</td>
+     <td> 
+        <form action="retalhistas/remover_retalhista" method="post">
+        <p><input type="hidden" name="tin" value="{{ record[0] }}"/></p>
+        <p><input type="hidden" name="nome" value="{{ record[1] }}"/></p>
+        <p><input type="submit" value="Remover"/></p>
+       </form>
+     </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+ </table>
+ <td><a href="retalhistas/adicionar_retalhista">Adicionar Retalhista</a></td>
+ <tr>
+  <button onclick="history.back()">Voltar</button>
+ </tr>
+
+{% else %}
+    <p> Erro: não foi possível obter dados da base de dados!</p>
+{% endif %}
+</body>
+</html>

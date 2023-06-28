@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Adicionar Categoria - Flask</title>
+</head>
+<body>
+    <h3>Adicionar Categoria</h3>
+    <tr> 
+        <form action="insert" method="post">
+        <tr>
+            <select name="tipo_cat">
+            <option value="categoria_simples" selected>Categoria Simples</option>
+            <option value="super_categoria">Super Categoria</option>
+            </select>
+        </tr>
+        <p>Nova categoria: <input type="text" name="nome_categoria"/></p>
+        <p><input type="submit" value="Submit"/></p>
+       </form>
+       <button onclick="history.back()">Voltar</button>
+    </tr>
+</body>
+</html>
+
